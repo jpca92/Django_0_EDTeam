@@ -13,7 +13,7 @@ class TblCategoria(models.Model):
     categoria_nombre = models.CharField(max_length=200)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'tbl_categoria'
     
     def __str__(self):
@@ -27,7 +27,7 @@ class TblCurso(models.Model):
     categoria = models.ForeignKey(TblCategoria, models.DO_NOTHING)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'tbl_curso'
 
     def __str__(self):

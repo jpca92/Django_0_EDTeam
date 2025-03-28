@@ -75,9 +75,12 @@ WSGI_APPLICATION = 'edteam_0.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'edteam.db',
+    'default': {'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'db_edteam',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',  # o la IP del servidor de la base de datos
+        'PORT': '5432', 
     }
 }
 

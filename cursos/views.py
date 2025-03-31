@@ -45,3 +45,23 @@ def suma (request, n1, n2):
     """
     resultado = str(n1 + n2)
     return HttpResponse('El resultado es: ' + resultado)
+
+def operations(request, n1, n2, operation):
+    result = None
+    match operation:
+        case 'addition':
+            result = n1 + n2
+        case 'subtraction':
+            result = n1 - n2
+        case 'multiplication':
+            result = n1 * n2
+        case 'division':
+            if n2 == 0:
+                return HttpResponse("No se puede dividir por cero")
+            result = n1 / n2
+        case _:
+            return HttpResponse("Operación no reconocida")
+
+    return HttpResponse(f'El resultado de la operación {operation} es: {result}')
+
+

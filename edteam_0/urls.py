@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
-from cursos.views import cursos
+from cursos.views import cursos, cursosAPI
 
 def holamundo(request):
     # Para reisar el header
@@ -27,5 +27,6 @@ def holamundo(request):
 urlpatterns = [
     path('holamundo/', holamundo),
     path('cursos/', cursos),
+    path('cursosapi/', cursosAPI),
     path('admin/', admin.site.urls),
 ]

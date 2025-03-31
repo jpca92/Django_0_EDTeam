@@ -17,11 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
+from cursos.views import cursos
 
 def holamundo(request):
+    # Para reisar el header
+    # print(request.headers)
     return HttpResponse('<h1> Hola Mundo </h1>')
 
 urlpatterns = [
     path('holamundo/', holamundo),
+    path('cursos/', cursos),
     path('admin/', admin.site.urls),
 ]

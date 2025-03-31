@@ -28,3 +28,20 @@ def cursosAPI(request):
 
     # return JsonResponse(final_list, safe=False)  # ✅ recomendado
     return JsonResponse(dataJson)
+
+def saludo(request):
+    """
+    http://127.0.0.1:8000/saludo/?nombre=cesar
+    con ?nonbre=cesar se pasa el parametro para el get
+
+    """
+    nombre = request.GET['nombre']
+    return HttpResponse('<center>Hola ' + nombre + '</center>')
+
+def suma (request, n1, n2):
+    """
+    http://127.0.0.1:8000/suma/2/3
+    asi llamamos a esa ruta con los parametros
+    """
+    resultado = str(n1 + n2)
+    return HttpResponse('El resultado es: ' + resultado)

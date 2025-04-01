@@ -1,8 +1,8 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.http import HttpResponse
 from cursos.views import cursos, cursosAPI, saludo, suma, operations, show_form
-from blog.views import index
+
 
 def holamundo(request):
     # Para reisar el header
@@ -18,5 +18,6 @@ urlpatterns = [
     path('suma/<int:n1>/<int:n2>',suma),
     path('operations/<int:n1>/<int:n2>/<str:operation>',operations),
     path('form', show_form),
-    path('blog/', index)
+    path('blog/', include('blog.urls')),
+    path('cursos_index/', include('cursos.urls'))
 ]

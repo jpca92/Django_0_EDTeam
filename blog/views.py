@@ -24,4 +24,4 @@ def index(request):
         "articulos":listaArticulos
     }
     
-    return render(request,'index.html',context)
+    return render(request,'blog/index.html',context)

@@ -77,3 +77,6 @@ def show_form(request):
     }
 
     return render(request, 'formulario.html', context)
+
+def index (request):
+    return render(request, 'index.html')

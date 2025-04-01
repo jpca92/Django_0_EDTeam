@@ -1,23 +1,8 @@
-"""
-URL configuration for edteam_0 project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
 from cursos.views import cursos, cursosAPI, saludo, suma, operations, show_form
+from blog.views import index
 
 def holamundo(request):
     # Para reisar el header
@@ -33,4 +18,5 @@ urlpatterns = [
     path('suma/<int:n1>/<int:n2>',suma),
     path('operations/<int:n1>/<int:n2>/<str:operation>',operations),
     path('form', show_form),
+    path('blog/', index)
 ]

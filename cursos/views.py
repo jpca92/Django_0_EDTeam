@@ -65,3 +65,15 @@ def operations(request, n1, n2, operation):
     return HttpResponse(f'El resultado de la operación {operation} es: {result}')
 
 
+def show_form(request):
+    result_operation = 0
+    if request.method == 'POST':
+        n1 = int(request.POST['n1'])
+        n2 = int(request.POST['n2'])
+        result_operation = n1 + n2
+
+    context = {
+        'answer': result_operation
+    }
+
+    return render(request, 'formulario.html', context)

@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
-from .models import Articulo
+from .models import Articulo, Comentario
 
 # Create your views here.
 def index(request):
@@ -14,7 +14,22 @@ def index(request):
 
 def contenido (request, articulo_id):
     objArticulo = Articulo.objects.get(pk=articulo_id)
+    listaComentarios = Comentario.objects.filter(articulo=objArticulo)
     context= {
-        'articulo':objArticulo
+        'articulo':objArticulo,
+        'comentarios':listaComentarios
     }
     return render (request, 'blog/articulo.html',context)
+
+def comentar(request, articulo_id):
+    if request.method == 'POST':
+        objArticulo = Articulo.objects.get(pk=articulo_id)
+        
+        comentario = request.POST['comentario']
+        print(comentario)
+        nuevoComentario = Comentario()
+        nuevoComentario.texto = comentario
+        nuevoComentario.articulo = objArticulo
+        nuevoComentario.save()
+
+    return redirect('/contenido/'+ str(articulo_id))

@@ -21,3 +21,11 @@ class Articulo(models.Model):
 
     def __str__(self):
         return self.titulo
+
+class Comentario(models.Model):
+    articulo = models.ForeignKey(Articulo, on_delete=models.RESTRICT)
+    texto = models.TextField(default='')
+    autor = models.CharField(max_length=60, default='anonimo')
+
+    def __str__(self):
+        return self.autor

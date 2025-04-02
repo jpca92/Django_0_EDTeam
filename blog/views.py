@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import Articulo
+
 # Create your views here.
 def index(request):
     listaArticulos = [
@@ -19,7 +21,8 @@ def index(request):
             "autor":"Alvaro Felipe Chávez"
         },
     ]
-    
+    listaArticulos= Articulo.objects.all()
+    print(listaArticulos)
     context = {
         "articulos":listaArticulos
     }

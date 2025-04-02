@@ -21,7 +21,7 @@ urlpatterns = [
     path('suma/<int:n1>/<int:n2>',suma),
     path('operations/<int:n1>/<int:n2>/<str:operation>',operations),
     path('form', show_form),
-    path('blog/', include('blog.urls')),
+    path('', include('blog.urls')),
     path('cursos_index/', include('cursos.urls')),
     
 
